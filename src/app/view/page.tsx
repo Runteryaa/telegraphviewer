@@ -250,6 +250,21 @@ function ViewerContent() {
             title={data.title} 
           />
 
+          {showSettledAd && (
+            <div className="pointer-events-auto relative group">
+              <button 
+                onClick={(e) => { e.preventDefault(); setShowSettledAd(false); }}
+                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                aria-label="Close Ad"
+              >
+                <X size={16} />
+              </button>
+                <a href="/api/ad/click?url=https%3A%2F%2Fexe.io%2Fref%2Frunterya" target="_blank" rel="noopener noreferrer">
+                  <img src="/api/ad/image?url=https%3A%2F%2Fexe.io%2Fimg%2Fref%2Fr4.png" title="CuT URLs - Earn money by shortening links with the highest CPMs Ever!" alt="Ad" className="w-full rounded-md shadow-lg" />
+                </a>
+            </div>
+          )}
+
         </div>
       </main>
     </div>
