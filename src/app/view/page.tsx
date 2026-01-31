@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { Loader2, AlertCircle, X } from 'lucide-react';
 
 function ViewerContent() {
   const searchParams = useSearchParams();
@@ -11,6 +11,11 @@ function ViewerContent() {
   const [data, setData] = useState<{ title: string; content: Array<{ type: 'image'; src: string } | { type: 'buttons'; items: { text: string; url: string }[] } | { type: 'text'; html: string }> } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  const [showLeftAd, setShowLeftAd] = useState(true);
+  const [showRightAd, setShowRightAd] = useState(true);
+  const [showBottomAd, setShowBottomAd] = useState(true);
+  const [showSettledAd, setShowSettledAd] = useState(true);
 
   useEffect(() => {
     if (!q) {
@@ -72,15 +77,87 @@ function ViewerContent() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Ad Placeholder: Top of Page */}
-      {/* <div id="ad-top" className="w-full h-24 bg-gray-800 flex items-center justify-center text-xs text-gray-500">Ad Space (Top)</div> */}
       
+      {/* Sidebar Ad: Left */}
+      {showLeftAd && (
+        <div className="fixed top-0 left-4 bottom-0 w-40 hidden xl:flex flex-col items-center justify-center pointer-events-none">
+          <div className="pointer-events-auto relative group">
+              <button 
+                  onClick={(e) => { e.preventDefault(); setShowLeftAd(false); }}
+                  className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                  aria-label="Close Ad"
+              >
+                <X size={16} />
+              </button>
+              <a href="/api/ad/click?url=https%3A%2F%2Fexe.io%2Fref%2Frunterya" target="_blank" rel="noopener noreferrer">
+                  <img src="/api/ad/image?url=https%3A%2F%2Fexe.io%2Fimg%2Fref%2Fr6.png" title="CuT URLs - Earn money by shortening links with the highest CPMs Ever!" alt="Ad" className="w-full rounded-md shadow-lg" />
+              </a>
+          </div>
+        </div>
+      )}
+
+      {/* Sidebar Ad: Right */}
+      {showRightAd && (
+        <div className="fixed top-0 right-4 bottom-0 w-40 hidden xl:flex flex-col items-center justify-center pointer-events-none">
+          <div className="pointer-events-auto relative group">
+              <button 
+                  onClick={(e) => { e.preventDefault(); setShowRightAd(false); }}
+                  className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                  aria-label="Close Ad"
+              >
+                <X size={16} />
+              </button>
+              <a href="/api/ad/click?url=https%3A%2F%2Fexe.io%2Fref%2Frunterya" target="_blank" rel="noopener noreferrer">
+                  <img src="/api/ad/image?url=https%3A%2F%2Fexe.io%2Fimg%2Fref%2Fr6.png" title="CuT URLs - Earn money by shortening links with the highest CPMs Ever!" alt="Ad" className="w-full rounded-md shadow-lg" />
+              </a>
+          </div>
+        </div>
+      )}
+
+      {/* Sticky Bottom Banner (Mobile/Tablet) */}
+      {showBottomAd && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center items-center bg-black/90 backdrop-blur border-t border-gray-800 p-2 xl:hidden">
+          <button 
+              onClick={(e) => { e.preventDefault(); setShowBottomAd(false); }}
+              className="absolute -top-3 right-2 bg-red-600 text-white rounded-full p-1 shadow-md z-50 hover:bg-red-700"
+              aria-label="Close Ad"
+          >
+            <X size={20} />
+          </button>
+          <a href="/api/ad/click?url=https%3A%2F%2Fexe.io%2Fref%2Frunterya" target="_blank" rel="noopener noreferrer" className="block w-full max-w-[728px]">
+              <img 
+                src="/api/ad/image?url=https%3A%2F%2Fexe.io%2Fimg%2Fref%2Fr4.png" 
+                title="CuT URLs - Earn money by shortening links with the highest CPMs Ever!" 
+                alt="Ad" 
+                className="w-full h-auto rounded-md shadow-lg" 
+              />
+          </a>
+        </div>
+      )}
+
       <main className="max-w-3xl mx-auto bg-black shadow-2xl min-h-screen">
-        <div className="p-4 text-center border-b border-gray-800">
+        <div className="p-4 pb-2 text-center border-b border-gray-800">
           <h1 className="text-lg sm:text-xl font-bold break-words whitespace-normal">{data.title}</h1>
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center">
+          
+          {showSettledAd && (
+            <div className="pointer-events-auto relative group pt-2 mb-2">
+              <button 
+                onClick={(e) => { e.preventDefault(); setShowSettledAd(false); }}
+                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                aria-label="Close Ad"
+              >
+                <X size={16} />
+              </button>
+                <a href="/api/ad/click?url=https%3A%2F%2Fexe.io%2Fref%2Frunterya" target="_blank" rel="noopener noreferrer">
+                  <img src="/api/ad/image?url=https%3A%2F%2Fexe.io%2Fimg%2Fref%2Fr4.png" title="CuT URLs - Earn money by shortening links with the highest CPMs Ever!" alt="Ad" className="w-full rounded-md shadow-lg" />
+                </a>
+            </div>
+          )}
+
+
           {data.content.map((block, index) => {
             if (block.type === 'image') {
               return (
@@ -120,14 +197,24 @@ function ViewerContent() {
             }
             return null;
           })}
+
+          {showSettledAd && (
+            <div className="pointer-events-auto relative group">
+              <button 
+                onClick={(e) => { e.preventDefault(); setShowSettledAd(false); }}
+                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                aria-label="Close Ad"
+              >
+                <X size={16} />
+              </button>
+                <a href="/api/ad/click?url=https%3A%2F%2Fexe.io%2Fref%2Frunterya" target="_blank" rel="noopener noreferrer">
+                  <img src="/api/ad/image?url=https%3A%2F%2Fexe.io%2Fimg%2Fref%2Fr4.png" title="CuT URLs - Earn money by shortening links with the highest CPMs Ever!" alt="Ad" className="w-full rounded-md shadow-lg" />
+                </a>
+            </div>
+          )}
+
         </div>
       </main>
-
-      {/* Ad Placeholder: Bottom of Page */}
-      {/* <div id="ad-bottom" className="w-full h-24 bg-gray-800 flex items-center justify-center text-xs text-gray-500 mt-8">Ad Space (Bottom)</div> */}
-      
-      {/* Ad Placeholder: Pop-under */}
-      {/* <script> // Pop-under script would go here </script> */}
     </div>
   );
 }
