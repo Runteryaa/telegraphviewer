@@ -110,7 +110,7 @@ function ViewerContent() {
           <div className="pointer-events-auto relative group">
               <button 
                   onClick={(e) => { e.preventDefault(); setShowLeftAd(false); }}
-                  className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                  className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
                   aria-label="Close Ad"
               >
                 <X size={16} />
@@ -128,7 +128,7 @@ function ViewerContent() {
           <div className="pointer-events-auto relative group">
               <button 
                   onClick={(e) => { e.preventDefault(); setShowRightAd(false); }}
-                  className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                  className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
                   aria-label="Close Ad"
               >
                 <X size={16} />
@@ -145,7 +145,7 @@ function ViewerContent() {
         <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center items-center bg-black/90 backdrop-blur border-t border-gray-800 p-2 xl:hidden">
           <button 
               onClick={(e) => { e.preventDefault(); setShowBottomAd(false); }}
-              className="absolute -top-3 right-2 bg-red-600 text-white rounded-full p-1 shadow-md z-50 hover:bg-red-700"
+              className="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 shadow-md z-50 hover:bg-red-700"
               aria-label="Close Ad"
           >
             <X size={20} />
@@ -177,7 +177,7 @@ function ViewerContent() {
             <div className="pointer-events-auto relative group pt-2 mb-2">
               <button 
                 onClick={(e) => { e.preventDefault(); setShowSettledAd(false); }}
-                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
                 aria-label="Close Ad"
               >
                 <X size={16} />
@@ -233,7 +233,7 @@ function ViewerContent() {
             <div className="pointer-events-auto relative group">
               <button 
                 onClick={(e) => { e.preventDefault(); setShowSettledAd(false); }}
-                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
                 aria-label="Close Ad"
               >
                 <X size={16} />
@@ -254,7 +254,7 @@ function ViewerContent() {
             <div className="pointer-events-auto relative group">
               <button 
                 onClick={(e) => { e.preventDefault(); setShowSettledAd(false); }}
-                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
+                className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity z-50 hover:bg-red-700"
                 aria-label="Close Ad"
               >
                 <X size={16} />
