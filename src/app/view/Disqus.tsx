@@ -9,7 +9,7 @@ interface DisqusProps {
 }
 
 export default function Disqus({ url, identifier, title }: DisqusProps) {
-  const shortname = 'telegraview'; // Ensure this matches your Disqus Admin > Settings > Shortname
+  const shortname = 'telegraview';
 
   useEffect(() => {
     // Helper to check if script is already there
@@ -45,7 +45,11 @@ export default function Disqus({ url, identifier, title }: DisqusProps) {
   }, [url, identifier, title, shortname]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 mt-8 bg-gray-900/50 rounded-lg min-h-[150px]">
+    <div 
+      id="disqus_container"
+      className="w-full max-w-3xl mx-auto p-4 mt-8 rounded-lg min-h-[150px]"
+      style={{ backgroundColor: '#111827', color: '#ffffff' }}
+    >
       <div id="disqus_thread"></div>
       <noscript>
         Please enable JavaScript to view the{' '}
