@@ -26,15 +26,9 @@ export default function Home() {
 
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-blue-900/50">
-            <BookOpen className="h-8 w-8 text-white" />
-          </div>
           <h1 className="text-4xl font-extrabold tracking-tight">
-            Telegraview
+            TelegraView
           </h1>
-          <p className="mt-2 text-gray-400">
-            Read Telegra.ph articles in a seamless vertical scroll.
-          </p>
         </div>
 
         <form onSubmit={handleRead} className="mt-8 space-y-4">
@@ -61,14 +55,13 @@ export default function Home() {
             </button>
           </div>
         </form>
+        
+        <div className="text-center text-xs text-gray-600 mt-8">
+            <p>Paste a link like <code>https://telegra.ph/TelegraView-02-02</code></p>
+        </div>
 
         {/* --- RECOMMENDED USERSCRIPTS SECTION --- */}
-        <div className="mt-10 pt-6 border-t border-gray-800">
-          <div className="flex items-center gap-2 mb-4 text-gray-300">
-            <Zap size={18} className="text-yellow-500" />
-            <h2 className="text-sm font-semibold uppercase tracking-wider">Enhance your experience</h2>
-          </div>
-          
+        <div className="mt-10 pt-6">
           <div className="grid gap-3">
             <a 
               href="https://greasyfork.org/en/scripts/564741-openin-telegraview"
@@ -98,10 +91,6 @@ export default function Home() {
           </div>
         </div>
         {/* --- END SECTION --- */}
-
-        <div className="text-center text-xs text-gray-600 mt-8">
-            <p>Paste a link like <code>https://telegra.ph/TelegraView-02-02</code></p>
-        </div>
       </div>
     </div>
   );
